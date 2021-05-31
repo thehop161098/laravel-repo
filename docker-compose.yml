@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  # Database
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./database:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: 123
+  # PHP
+  php:
+    build: ./docker/php
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./laravel/:/var/www/html
+    depends_on:
+      - db
+  # NGINX
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./laravel/:/var/www/html
