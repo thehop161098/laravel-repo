@@ -1,18 +1,6 @@
 <?php
 
-/**
- * Wallet CLO
- * PHP version 7.0
- *
- * @category Repositories
- * @package  UserRepository
- * @author   luan.nguyen <vltlnguy@mediba.jp>
- * @license  mediba inc. http://www.mediba.jp
- * @link     none
- */
-
 namespace App\Repositories;
-
 
 use App\Models\User;
 use App\Repositories\Contracts\UserRepository as UserRepositoryContract;

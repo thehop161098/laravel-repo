@@ -6,6 +6,7 @@ RUN apk add --update \
     make \
     curl \
     nodejs \
+    npm \
     yarn 
 
 RUN apk add --no-cache zip libzip-dev libpng-dev
